@@ -14,6 +14,7 @@
 #print(words_file.readline())
 #data=[1,3,2,8,5,6,10]
 #print([2*x for x in data if x % 2 == 0])
+
 def more_than_20(file):
     words= []
     data = open(file, 'r')
@@ -39,23 +40,20 @@ def uses_only(word,letters):
     
     return True
 
+
+
 def all_uses_only(file, letters):
     matches = []
-    f= open(file,'r')
-    for line in f:
-        word= line.strip()
-        if not word:
-            return False
-    if uses_only(word,letters):
-        matches.append(word)
+    with open(file, 'r') as f:
+        for line in f:
+            word = line.strip()
+            if not word:
+                False
+            if uses_only(word, letters):
+                matches.append(word)
     return matches
 
 
 
 
-#check = True
-#for letter in word:
-    #if 'e' == letter:
-        #check=False
-#return check
 
