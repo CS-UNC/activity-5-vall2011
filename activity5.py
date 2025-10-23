@@ -23,7 +23,7 @@ def more_than_20(file):
     #return words   
     words = [x.strip() for x in data if len(x.strip())> 20]
     return words
-print(more_than_20("CROSSWD.txt"))
+#print(more_than_20("CROSSWD.txt"))
 
 
 def has_no_e (word):
@@ -40,10 +40,17 @@ def uses_only(word,letters):
     return True
 
 def all_uses_only(file, letters):
-    for letters in file:
-        uses_o = uses_only(word,letters)
-        if uses_o == True:
-            return letters
+    matches = []
+    f= open(file,'r')
+    for line in f:
+        word= line.strip()
+        if not word:
+            return False
+    if uses_only(word,letters):
+        matches.append(word)
+    return matches
+
+
 
 
 #check = True
